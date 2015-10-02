@@ -1,0 +1,13 @@
+.*
+!.gitignore
+*.class
+*.war
+*.iml
+bin/
+classes/
+target/
+target/*
+build/*
+build/
+/build
+gradle.properties

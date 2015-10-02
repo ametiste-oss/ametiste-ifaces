@@ -1,0 +1,9 @@
+plugins {
+    id "com.jfrog.bintray" version "1.3.1"
+}
+
+apply plugin: 'java'
+
+description = "Basic facade helpers and build blocks."
+
+apply from: "https://raw.githubusercontent.com/ametiste-oss/ametiste-bintray-gradle/master/bintray.gradle"

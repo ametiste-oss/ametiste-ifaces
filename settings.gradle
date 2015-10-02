@@ -1,0 +1,11 @@
+rootProject.name = 'ametiste-ifaces'
+include 'ifaces-api'
+include 'ifaces-data'
+include 'ifaces-event'
+include 'ifaces-facade'
+include 'ifaces-protocol'
+include 'ifaces-restful'
+include 'ifaces-si'
+include 'ifaces-srpring'
+include 'ifaces-http'
+

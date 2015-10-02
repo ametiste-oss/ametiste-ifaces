@@ -1,0 +1,47 @@
+subprojects {
+
+    apply plugin: 'maven'
+    apply plugin: 'java'
+    apply plugin: 'idea'
+
+    apply from: "https://raw.githubusercontent.com/ametiste-oss/ametiste-bintray-gradle/master/bintray-ext-ame-oss.gradle"
+    apply from: "https://raw.githubusercontent.com/ametiste-oss/ametiste-bintray-gradle/master/bintray-ext.gradle"
+
+    apply plugin: 'maven-publish'
+
+    sourceCompatibility=1.8
+    targetCompatibility=1.8
+
+    group = 'org.ametiste.ifaces'
+    version = '0.1.0-SNAPSHOT'
+
+    repositories {
+        mavenCentral()
+    }
+
+    task sourcesJar(type: Jar, dependsOn:classes) {
+        classifier = 'sources'
+        from sourceSets.main.allSource
+    }
+
+    task javadocJar(type: Jar, dependsOn:javadoc) {
+        classifier = 'javadoc'
+        from javadoc.destinationDir
+    }
+
+    ext {
+        springVersion = '4.0.6.RELEASE'
+        junitVersion = '4.11'
+        mockitoVersion = '1.9.5'
+        sl4jVersion = '1.7.2'
+
+        bintray_vcsUrl = 'https://github.com/ametiste-oss/ametiste-ifaces.git'
+    }
+
+    dependencies {
+        compile "org.slf4j:slf4j-api:${sl4jVersion}"
+        testCompile group: 'junit', name: 'junit', version: "${junitVersion}"
+        testCompile "org.mockito:mockito-core:${mockitoVersion}"
+    }
+
+}

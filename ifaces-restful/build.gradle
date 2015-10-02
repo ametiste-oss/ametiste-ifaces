@@ -1,0 +1,20 @@
+plugins {
+    id "com.jfrog.bintray" version "1.3.1"
+}
+
+apply plugin: 'java'
+apply plugin: 'idea'
+
+apply from: "https://raw.githubusercontent.com/ametiste-oss/ametiste-bintray-gradle/master/bintray.gradle"
+
+dependencies {
+	
+	compile project(":ifaces-api")
+	compile project(":ifaces-http")
+	
+	compile "org.springframework:spring-webmvc:${springVersion}"
+	compile "org.springframework:spring-test:${springVersion}"
+
+    compile "javax.servlet:javax.servlet-api:3.0.1"
+	
+}
