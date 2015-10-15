@@ -19,6 +19,8 @@ import javax.servlet.http.HttpServletResponse;
 @ControllerAdvice
 public class ApiControllerMappingAdvice implements InitializingBean {
 
+    public static final String ERROR_PAGE_VIEW_NAME = "ameApiErrorPageView";
+
 	private final Logger logger = LoggerFactory.getLogger(getClass());
 
 	@Autowired
@@ -49,7 +51,8 @@ public class ApiControllerMappingAdvice implements InitializingBean {
 		HttpError error = view.build();
 
 		response.setStatus(error.getStatus().value());
-		ModelAndView mv = new ModelAndView();
+
+		ModelAndView mv = new ModelAndView(ERROR_PAGE_VIEW_NAME);
 		mv.addObject("code", error.getBody().code);
 		mv.addObject("request_id", error.getBody().request_id);
 		mv.addObject("message", error.getBody().message);
